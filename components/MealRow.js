@@ -1,23 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default function MealRow(props) {
   const { label, value, setValue } = props;
-  
+
   return (
     <View style={styles.container}>
-      <View style={styles.mealTextContainer}>
-        <Text style={styles.mealText}>{label}:</Text>
-      </View>
-      <View style={styles.mealInputContainer}>
-        <TextInput
-          style={styles.mealInput}
-          onChangeText={text => setValue(text)}
-          value={value}
-          clearButtonMode={'always'}
-          />
+        <View style={styles.mealTextContainer}>
+          <Text style={styles.mealText}>{label}:</Text>
         </View>
-    </View>
+      <TouchableOpacity onLongPress={() => console.log("Long press!!!")}>
+        <View style={styles.mealInputContainer}>
+          <TextInput
+            style={styles.mealInput}
+            onChangeText={text => setValue(text)}
+            value={value}
+            clearButtonMode={'always'}
+            />
+        </View>
+            </TouchableOpacity>
+      </View>
   );
 }
 
