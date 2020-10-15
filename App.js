@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, ScrollView } from 'react-native';
-import MealRow from './MealRow';
+import { Button } from 'react-native-paper';
 
 export default function App() {
   const days = ['Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato', 'Domenica'];
@@ -31,7 +30,8 @@ export default function App() {
         </View>
       )}
       </ScrollView>
-      <Button title="Clear all" onPress={clearAll}/>
+      <Button onPress={() => setVisibleSettings(true)} mode="contained" >Settings</Button>
+      <Button onPress={clearAll}> Clear all </Button>
       <StatusBar style="auto" />
     </View>
   );
