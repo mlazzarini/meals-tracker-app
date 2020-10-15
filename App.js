@@ -1,9 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Button } from 'react-native-paper';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import MealRow from './components/MealRow';
+import SettingsModal from './components/SettingsModal';
 
 export default function App() {
   const days = ['Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato', 'Domenica'];
+  const [ visibleSettings, setVisibleSettings ] = useState(false);
 
   const initialMeals = days.reduce((acc, day) => { 
     return {...acc, [day]: ['', '']}
@@ -22,6 +26,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <SettingsModal visible={visibleSettings} handleClose={() => setVisibleSettings(false)}/>
       <ScrollView>
       {days.map(day =>
         <View key={day}>
